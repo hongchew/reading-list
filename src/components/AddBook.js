@@ -13,7 +13,8 @@ class AddBook extends React.Component {
 
         this.state = {
             show : false,
-            book : new BookObject()
+            book : new BookObject(),
+            toast : false
         }
 
         this.toggleModal = () => {
@@ -57,7 +58,7 @@ class AddBook extends React.Component {
 
         return(
             <div>
-                <Button onClick={this.toggleModal}>Add Book</Button>
+                <Button variant="info" onClick={this.toggleModal} >Add Book</Button>
 
                 <Modal show={this.state.show} onHide={this.toggleModal}>
                     <Modal.Header>
@@ -76,6 +77,7 @@ class AddBook extends React.Component {
                         <Button variant="primary" onClick={this.handleSubmit}>Add Book</Button>
                     </Modal.Footer>
                 </Modal>
+
             </div>
         )
        

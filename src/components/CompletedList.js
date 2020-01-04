@@ -26,7 +26,7 @@ class CompletedList extends React.Component{
         return(
             <Container>
                 {this.props.books.map( book => (
-                    <Card>
+                    <Card key="book.id">
                         <Card.Body>
                             <Book book={book}/>
                             <br/>

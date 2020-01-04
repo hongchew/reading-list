@@ -15,7 +15,7 @@ class CurrentlyReadingList extends React.Component{
         super(props)
 
         this.state = {
-            show : false,
+            show : {},
             bookToUpdate : {}
         }
 
@@ -31,16 +31,29 @@ class CurrentlyReadingList extends React.Component{
 
         this.handleComplete = book => {
             this.props.markComplete(book);
+            const newShow = this.state.show;
+            delete newShow[book.id];
+            this.setState({show : newShow})
         }
 
-        this.handleHide = () => {
-            this.setState({bookToUpdate : {}}) //reset book to update
-            this.toggleModal();
+        this.handleHide = (book) => {
+            const newShow = this.state.show;
+            newShow[book.id] = false;
+            this.setState( prevState => ({
+                ...prevState,
+                show : newShow,
+                bookToUpdate : {} //reset book to update
+            }))
         }
 
         this.showModal = (book) => {
-            this.setState({bookToUpdate : book})
-            this.toggleModal();
+            const newShow = this.state.show;
+            newShow[book.id] = true;
+            this.setState ( prevState => ({
+                ...prevState,
+                show : newShow,
+                bookToUpdate : book
+            }))
         }
         
         this.handlePageChange = (event) => {
@@ -69,7 +82,7 @@ class CurrentlyReadingList extends React.Component{
         return(
             <Container>
                 {this.props.books.map( book => (
-                    <div>
+                    <div key={book.id}>
                     <Card>
                         <Card.Body>
                             <Book book={book}/>
@@ -82,7 +95,7 @@ class CurrentlyReadingList extends React.Component{
                         </Card.Body>
                     </Card>
 
-                    <Modal show={this.state.show} onHide={this.handleHide}>
+                    <Modal show={this.state.show[book.id]} onHide={() => this.handleHide(book)}>
                         <Modal.Header>
                             <Modal.Title>Update</Modal.Title>
                         </Modal.Header>
@@ -93,7 +106,7 @@ class CurrentlyReadingList extends React.Component{
                             </Form>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={this.handleHide}>Close</Button>
+                            <Button variant="secondary" onClick={() => this.handleHide(book)}>Close</Button>
                             <Button variant="primary" onClick={() => this.handleUpdate(book)}>Update</Button>
                             <Button variant="success" onClick={() => this.handleComplete(book)}>Mark as Completed</Button>
                         </Modal.Footer>
