@@ -1,68 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# reading-list
 
-## Available Scripts
+This is a mini project to practice react, redux and express. 
 
-In the project directory, you can run:
+It is a reading list that helps keep track of what books you are currently reading, intend to read and had completed reading. 
 
-### `yarn start`
+All data is persisted on browser's localStorage, which means that information will be gone if you clear browser data.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project consist of 2 parts, `reading-list`, which is a react & redux frontend that runs on the browser, and `reading-list-services`, an express server to do mock API calls. 
+## Quick Start
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Run the following command on `/reading-list `
 
-### `yarn test`
+``` npm run start ```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The application will be available on `localhost:3000` and the mock server will be running on `localhost:3001`
 
-### `yarn build`
+Alternatively, you can run `npm run start-app` or  `npm run start-server` to run each seperately.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Mock Server
+The application comes with a express server on `/reading-list/reading-list-services`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+As mentioned above, this express server is used to mock API calls and is not necessary for the running of the main app. The existence of this server is entirely for practice purpose and serve no practical purpose. (Unless you want to sync up multiple instances of the reading-list locally with the same comments)
