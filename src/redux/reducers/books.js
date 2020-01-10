@@ -1,12 +1,10 @@
 import { type } from '../actions'
 import { status } from '../../models/bookStatus'
-const uuidv4 = require('uuid/v4');
-
 
 const initialState = {
     books: [
         {
-            id: uuidv4(),
+            id: 1,
             title: "Harry Potter and the Philosopher's Stone",
             author: "J. K. Rowling",
             currentPage: 300,
@@ -14,14 +12,14 @@ const initialState = {
 
         },
         {
-            id: uuidv4(),
+            id: 2,
             title: "Harry Potter and the Chamber of Secrets",
             author: "J. K. Rowling",
             currentPage: 145,
             status : status.IN_PROGRESS
         },
         {
-            id: uuidv4(),
+            id: 3,
             title: "Harry Potter and the Prisoner of Azkaban",
             author: "J. K. Rowling",
             currentPage: 0,

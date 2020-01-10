@@ -24,16 +24,15 @@ class App extends React.Component {
 
 		<Container>
 			<br/>
-			<h2>Currently Reading:</h2>
+			<h3>Currently Reading:</h3>
 			<CurrentlyReadingList />
 		
-		
 			<br/>
-			<h2>Not Started:</h2>
+			<h3>Not Started:</h3>
 			<NotStartedList />
 		
 			<br/>
-			<h2>Completed:</h2>
+			<h3>Completed:</h3>
 			<CompletedList />
 		</Container>     
       </div>

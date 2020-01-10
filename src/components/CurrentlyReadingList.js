@@ -71,7 +71,7 @@ class CurrentlyReadingList extends React.Component{
 
         this.handleUpdate = (book) => {
             this.props.updatePage(book, this.state.bookToUpdate.currentPage);
-            this.handleHide();
+            this.handleHide(book);
         }
     }
 
